@@ -71,8 +71,8 @@ def generar_xmltv():
         return
     
     root = ET.Element("tv", {
-        "generator-info-name": "EPG",
-        "generator-info-url": "https://github.com/deyvvi"
+        "generator-info-name": "Generador-EPG-Python",
+        "generator-info-url": "http://localhost"
     })
     
     canales_agregados = set()
@@ -144,7 +144,10 @@ def generar_xmltv():
     parsed_xml = minidom.parseString(xml_str)
     xml_bonito_bytes = parsed_xml.toprettyxml(indent="  ", encoding="utf-8")
     
-    os.makedirs(os.path.dirname(OUTPUT_XML), exist_ok=True)
+    dir_output = os.path.dirname(OUTPUT_XML)
+    if dir_output:
+        os.makedirs(dir_output, exist_ok=True)
+        
     with open(OUTPUT_XML, "wb") as f:
         f.write(xml_bonito_bytes)
 
