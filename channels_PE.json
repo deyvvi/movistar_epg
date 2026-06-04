@@ -275,13 +275,6 @@
         {
             "pid": "LCH6519",
             "callLetter": "NATIVA TV OTT",
-            "tags": {
-                "completed": false,
-                "favorite": true,
-                "follow": false,
-                "hidden": false,
-                "watched": false
-            },
             "image": {
                 "type": "Icon",
                 "url": "http://media.gvp.telefonica.com/storageArea0/IMAGES/00/16/75/16752664_7AD4DAFC0E2DBB13.png"
@@ -522,13 +515,6 @@
         {
             "pid": "LCH7250",
             "callLetter": "ZOOMOO",
-            "tags": {
-                "completed": false,
-                "favorite": false,
-                "follow": false,
-                "hidden": false,
-                "watched": true
-            },
             "image": {
                 "type": "Logo",
                 "url": "http://media.gvp.telefonica.com/storageArea0/IMAGES/00/23/81/23812319_21950455D41A96F6.png"
