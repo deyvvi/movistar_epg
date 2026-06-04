@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVISTAR EPG</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid #333333;
+            padding: 24px;
+        }
+        h1 {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+            letter-spacing: 0.05em;
+        }
+        p {
+            font-size: 13px;
+            color: #888888;
+            margin: 0 0 24px 0;
+            line-height: 1.4;
+        }
+        .section-title {
+            font-size: 11px;
+            color: #555555;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+        .source-box {
+            background-color: #0a0a0a;
+            border: 1px solid #222222;
+            padding: 12px;
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+        .source-box:hover {
+            border-color: #444444;
+        }
+        .flex-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        .label {
+            font-size: 12px;
+            color: #aaaaaa;
+        }
+        .status-copy {
+            font-size: 10px;
+            color: #555555;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        input[type="text"] {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 12px;
+            padding: 4px 0;
+            outline: none;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>MOVISTAR TV EPG</h1>
+        <p>Repositorio de guías de programación xml.</p>
+
+        <div class="section-title">Canales Disponibles</div>
+        
+        <div class="source-box" onclick="copiarLink(this)">
+            <div class="flex-header">
+                <div class="label">Peru (PE.xml)</div>
+                <div class="status-copy" id="status-text">Click para copiar</div>
+            </div>
+            <input type="text" id="epg-url" readonly value="https://deyvvi.github.io/epg_movistar/PE.xml">
+        </div>
+    </div>
+
+    <script>
+        function copiarLink(elemento) {
+            var inputUrl = document.getElementById("epg-url");
+            var statusText = document.getElementById("status-text");
+
+            navigator.clipboard.writeText(inputUrl.value).then(function() {
+                statusText.innerText = "Copiado";
+                statusText.style.color = "#ffffff";
+                
+                setTimeout(function() {
+                    statusText.innerText = "Click para copiar";
+                    statusText.style.color = "#555555";
+                }, 1500);
+            }).catch(function(err) {
+                console.error("Error al copiar: ", err);
+            });
+        }
+    </script>
+
+</body>
+</html>
